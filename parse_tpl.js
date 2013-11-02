@@ -5,7 +5,7 @@
 */
 
 function parse_tpl(tpl, data){
-  function c(a,o){var v=o;  for(i in a){ v=v[a[i]];if(!v)return v; };return v; }  
+  function c(a,o){var v=o;  for(var i in a){ v=v[a[i]];if(!v)return v; };return v; }  
   return tpl.replace(/{{(.+?)}}/g, function(r,n){ 
     var k = c(n.split('.'),data); 
     return typeof k=='undefined'?'':k;  
