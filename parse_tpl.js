@@ -11,3 +11,10 @@ function parse_tpl(tpl, data){
     return typeof k=='undefined'?'':k;  
   });
 }//parse_tpl
+
+
+function parse_tpl2(tpl ,data){
+  return tpl.replace(/{{(.+?)}}/g, function(r,n){
+    with(data){ return eval(n); }
+  }
+}
